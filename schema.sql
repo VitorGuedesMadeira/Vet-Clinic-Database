@@ -8,22 +8,29 @@ CREATE TABLE animals (
     date_of_birth DATE NOT NULL,
     escape_attempts INT NOT NULL,
     neutered BOOLEAN NOT NULL,
-    weight_kg REAL NOT NULL
+    weight_kg REAL NOT NULL,
 );
 
-INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES ('Agumon', 'February 3, 2020', 0, true, '10.23');
+ALTER TABLE animals ADD species VARCHAR(100); -- ALTER TABLE (species added)
+ALTER TABLE animals ADD PRIMARY KEY(id) -- ALTER TABLE ADD PRIMARY KEY(id);
+ALTER TABLE animals DROP COLUMN species;
+ALTER TABLE animals ADD species_id INT;
+ALTER TABLE animals ADD CONSTRAINT fk_species_id FOREIGN KEY(species_id) REFERENCES species(id);
 
--- INSERT 0 1
+-- owners TABLE --
 
-INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES ('Gabumon', 'November 15, 2018', 2, true, '8');
+CREATE TABLE owners (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    full_name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    PRIMARY KEY(id)
+);
 
--- INSERT 0 1 
+-- species TABLE --
 
-INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES ('Pikachu', 'January 7, 2021', 1, false, '15.04');
-
--- INSERT 0 1
-
-INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES ('Devimon', 'May 12, 2017', 5, true, '11');
-
--- INSET 0 1
+CREATE TABLE species (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(100) NOT NULL,
+    PRIMARY KEY(id)
+);
 
