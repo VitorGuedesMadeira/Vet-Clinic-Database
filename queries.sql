@@ -14,8 +14,9 @@ SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 -- TUESDAY
 
 BEGIN;
-ALTER TABLE animals DROP COLUMN species;
-ALTER TABLE animals ADD unspecified VARCHAR(100);
+-- update species column to unspecified for all animals
+UPDATE animals
+SET species = 'unspecified';
 ROLLBACK;
 
 BEGIN;
