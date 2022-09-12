@@ -3,7 +3,7 @@
 -- MONDAY
 
 SELECT * FROM animals WHERE name LIKE '%mon';
-SELECT name FROM animals WHERE date_of_birth BETWEEN '2016-01-01' and '2019-01-01';
+SELECT name FROM animals WHERE date_of_birth BETWEEN '2016/01/01' and '2019/31/12';
 SELECT name FROM animals WHERE neutered = true AND escape_attempts < 3;
 SELECT date_of_birth FROM animals WHERE name IN ('Agumon', 'Pikachu');
 SELECT name, escape_attempts FROM animals WHERE weight_kg > 10.5;
@@ -63,4 +63,4 @@ SELECT animals.name AS digimons_name, owners.full_name AS owner_name FROM animal
 SELECT animals.name, owners.full_name FROM animals JOIN owners ON animals.owner_id = owners.id WHERE animals.escape_attempts = 0 AND owners.full_name = 'Dean Winchester';
 SELECT full_name, COUNT(full_name) AS owns FROM animals JOIN owners ON animals.owner_id = owners.id GROUP BY full_name ORDER BY owns DESC LIMIT 1;
 
--- THURDAY
+-- THURSDAY
