@@ -29,6 +29,11 @@ WHERE name NOT LIKE '%mon';
 COMMIT;
 
 BEGIN;
+-- delete all records in the animals table, then roll back the transaction
+DELETE FROM animals;
+ROLLBACK;
+
+BEGIN;
 DELETE FROM animals WHERE date_of_birth > '2022-01-01';
 SAVEPOINT deleteAnimals;
 SELECT * FROM animals; 
