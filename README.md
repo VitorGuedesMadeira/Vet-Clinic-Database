@@ -19,6 +19,8 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@CDahguedes](https://twitter.com/CDahguedes)
 - LinkedIn: (https://www.linkedin.com/in/vitor-guedes-madeira/)
 
+## Quick view
+> ![](assets/vets_clinic_db_schema.png)
 
 ## 🤝 Contributing
 

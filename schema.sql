@@ -20,7 +20,7 @@ ALTER TABLE animals ADD species VARCHAR(100); -- ALTER TABLE (species column add
 CREATE TABLE owners (
     id INT GENERATED ALWAYS AS IDENTITY,
     full_name VARCHAR(100) NOT NULL,
-    age INT NOT NULL,
+    age INT,
     PRIMARY KEY(id)
 );
 
@@ -62,3 +62,12 @@ CREATE TABLE visits (
     CONSTRAINT fk_animal_id FOREIGN KEY(animal_id) REFERENCES animals(id),
     CONSTRAINT fk_vets_id FOREIGN KEY(vet_id) REFERENCES vets(id)
 );
+
+-- SECOND WEEK (Pair-programming)
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+CREATE INDEX animal_index ON visits(animal_id);
+CREATE INDEX vet_index ON visits(vet_id);
+CREATE INDEX email_index ON owners(email);
